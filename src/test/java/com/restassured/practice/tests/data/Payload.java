@@ -20,11 +20,29 @@ public class Payload {
                 "}\n";
     }
 
-    public static String updatePlace() {
+    public static String CoursePrices() {
         return "{\n" +
-                "\"place_id\":\"8d2573bdf6ceec0e474c5f388fa917fb\",\n" +
-                "\"address\":\"70 Summer walk, USA\",\n" +
-                "\"key\":\"qaclick123\"\n" +
-                "}\n";
+                "\"dashboard\": {\n" +
+                "\"purchaseAmount\": 910,\n" +
+                "\"website\": \"rahulshettyacademy.com\"\n" +
+                "},\n" +
+                "\"courses\": [\n" +
+                "{\n" +
+                "\"title\": \"Selenium Python\",\n" +
+                "\"price\": 50,\n" +
+                "\"copies\": 6\n" +
+                "},\n" +
+                "{\n" +
+                "\"title\": \"Cypress\",\n" +
+                "\"price\": 40,\n" +
+                "\"copies\": 4\n" +
+                "},\n" +
+                "{\n" +
+                "\"title\": \"RPA\",\n" +
+                "\"price\": 45,\n" +
+                "\"copies\": 10\n" +
+                "}\n" +
+                "]\n" +
+                "}";
     }
 }
