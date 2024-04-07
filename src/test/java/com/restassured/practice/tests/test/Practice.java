@@ -6,11 +6,15 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class Practice {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         JsonPath jsonPath;
         RestAssured.baseURI = "https://rahulshettyacademy.com";
 
@@ -18,7 +22,7 @@ public class Practice {
         String response =
         given().log().all().queryParam("key", "qaclick123")
                 .header("Content-Type", "application/json")
-                .body(Payload.addPlace())
+                .body(new String(Files.readAllBytes(Paths.get("src/main/resources/addPlace.json"))))
         .when().post("/maps/api/place/add/json")
         .then().assertThat().statusCode(200)
                 .body("scope", equalTo("APP"))
